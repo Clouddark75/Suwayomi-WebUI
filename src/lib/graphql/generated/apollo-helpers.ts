@@ -1209,6 +1209,9 @@ export type PartialSettingsTypeKeySpecifier = (
     | 'globalUpdateInterval'
     | 'gqlDebugLogsEnabled'
     | 'hikariMaxPoolSize'
+    | 'downloadChaptersInParallel'
+    | 'rateLimitEnabled'
+    | 'disableCoverLoadingWhileBrowsing'
     | 'initialOpenInBrowserEnabled'
     | 'ip'
     | 'jwtAudience'
@@ -1310,6 +1313,9 @@ export type PartialSettingsTypeFieldPolicy = {
     globalUpdateInterval?: FieldPolicy<any> | FieldReadFunction<any>;
     gqlDebugLogsEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
     hikariMaxPoolSize?: FieldPolicy<any> | FieldReadFunction<any>;
+    downloadChaptersInParallel?: FieldPolicy<any> | FieldReadFunction<any>;
+    rateLimitEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
+    disableCoverLoadingWhileBrowsing?: FieldPolicy<any> | FieldReadFunction<any>;
     initialOpenInBrowserEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
     ip?: FieldPolicy<any> | FieldReadFunction<any>;
     jwtAudience?: FieldPolicy<any> | FieldReadFunction<any>;
@@ -1642,6 +1648,9 @@ export type SettingsKeySpecifier = (
     | 'globalUpdateInterval'
     | 'gqlDebugLogsEnabled'
     | 'hikariMaxPoolSize'
+    | 'downloadChaptersInParallel'
+    | 'rateLimitEnabled'
+    | 'disableCoverLoadingWhileBrowsing'
     | 'initialOpenInBrowserEnabled'
     | 'ip'
     | 'jwtAudience'
@@ -1743,6 +1752,9 @@ export type SettingsFieldPolicy = {
     globalUpdateInterval?: FieldPolicy<any> | FieldReadFunction<any>;
     gqlDebugLogsEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
     hikariMaxPoolSize?: FieldPolicy<any> | FieldReadFunction<any>;
+    downloadChaptersInParallel?: FieldPolicy<any> | FieldReadFunction<any>;
+    rateLimitEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
+    disableCoverLoadingWhileBrowsing?: FieldPolicy<any> | FieldReadFunction<any>;
     initialOpenInBrowserEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
     ip?: FieldPolicy<any> | FieldReadFunction<any>;
     jwtAudience?: FieldPolicy<any> | FieldReadFunction<any>;
@@ -1895,6 +1907,9 @@ export type SettingsTypeKeySpecifier = (
     | 'globalUpdateInterval'
     | 'gqlDebugLogsEnabled'
     | 'hikariMaxPoolSize'
+    | 'downloadChaptersInParallel'
+    | 'rateLimitEnabled'
+    | 'disableCoverLoadingWhileBrowsing'
     | 'initialOpenInBrowserEnabled'
     | 'ip'
     | 'jwtAudience'
@@ -1996,6 +2011,9 @@ export type SettingsTypeFieldPolicy = {
     globalUpdateInterval?: FieldPolicy<any> | FieldReadFunction<any>;
     gqlDebugLogsEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
     hikariMaxPoolSize?: FieldPolicy<any> | FieldReadFunction<any>;
+    downloadChaptersInParallel?: FieldPolicy<any> | FieldReadFunction<any>;
+    rateLimitEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
+    disableCoverLoadingWhileBrowsing?: FieldPolicy<any> | FieldReadFunction<any>;
     initialOpenInBrowserEnabled?: FieldPolicy<any> | FieldReadFunction<any>;
     ip?: FieldPolicy<any> | FieldReadFunction<any>;
     jwtAudience?: FieldPolicy<any> | FieldReadFunction<any>;
