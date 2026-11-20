@@ -1987,6 +1987,9 @@ export type PartialSettingsType = Settings & {
     /** @deprecated Removed - does not do anything */
     gqlDebugLogsEnabled?: Maybe<Scalars['Boolean']['output']>;
     hikariMaxPoolSize?: Maybe<Scalars['Int']['output']>;
+    downloadChaptersInParallel?: Maybe<Scalars['Int']['output']>;
+    rateLimitEnabled?: Maybe<Scalars['Boolean']['output']>;
+    disableCoverLoadingWhileBrowsing?: Maybe<Scalars['Boolean']['output']>;
     initialOpenInBrowserEnabled?: Maybe<Scalars['Boolean']['output']>;
     ip?: Maybe<Scalars['String']['output']>;
     jwtAudience?: Maybe<Scalars['String']['output']>;
@@ -2087,6 +2090,9 @@ export type PartialSettingsTypeInput = {
     flareSolverrUrl?: InputMaybe<Scalars['String']['input']>;
     globalUpdateInterval?: InputMaybe<Scalars['Float']['input']>;
     hikariMaxPoolSize?: InputMaybe<Scalars['Int']['input']>;
+    downloadChaptersInParallel?: InputMaybe<Scalars['Int']['input']>;
+    rateLimitEnabled?: InputMaybe<Scalars['Boolean']['input']>;
+    disableCoverLoadingWhileBrowsing?: InputMaybe<Scalars['Boolean']['input']>;
     initialOpenInBrowserEnabled?: InputMaybe<Scalars['Boolean']['input']>;
     ip?: InputMaybe<Scalars['String']['input']>;
     jwtAudience?: InputMaybe<Scalars['String']['input']>;
@@ -2641,6 +2647,9 @@ export type Settings = {
     /** @deprecated Removed - does not do anything */
     gqlDebugLogsEnabled?: Maybe<Scalars['Boolean']['output']>;
     hikariMaxPoolSize?: Maybe<Scalars['Int']['output']>;
+    downloadChaptersInParallel?: Maybe<Scalars['Int']['output']>;
+    rateLimitEnabled?: Maybe<Scalars['Boolean']['output']>;
+    disableCoverLoadingWhileBrowsing?: Maybe<Scalars['Boolean']['output']>;
     initialOpenInBrowserEnabled?: Maybe<Scalars['Boolean']['output']>;
     ip?: Maybe<Scalars['String']['output']>;
     jwtAudience?: Maybe<Scalars['String']['output']>;
@@ -2798,6 +2807,9 @@ export type SettingsType = Settings & {
     /** @deprecated Removed - does not do anything */
     gqlDebugLogsEnabled: Scalars['Boolean']['output'];
     hikariMaxPoolSize: Scalars['Int']['output'];
+    downloadChaptersInParallel: Scalars['Int']['output'];
+    rateLimitEnabled: Scalars['Boolean']['output'];
+    disableCoverLoadingWhileBrowsing: Scalars['Boolean']['output'];
     initialOpenInBrowserEnabled: Scalars['Boolean']['output'];
     ip: Scalars['String']['output'];
     jwtAudience: Scalars['String']['output'];
