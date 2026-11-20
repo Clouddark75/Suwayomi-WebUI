@@ -14,34 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Message-Format: ICU\n"
 
-#: src/features/downloads/screens/DownloadSettings.tsx
-msgid "Apply source rate limits"
-msgstr "Apply source rate limits"
-
-#: src/features/downloads/screens/DownloadSettings.tsx
-msgid "Disabled by default. Enable it in case a source starts blocking or throttling you"
-msgstr "Disabled by default. Enable it in case a source starts blocking or throttling you"
-
-#: src/features/downloads/screens/DownloadSettings.tsx
-msgid "Don't load covers while browsing sources"
-msgstr "Don't load covers while browsing sources"
-
-#: src/features/downloads/screens/DownloadSettings.tsx
-msgid "How many chapters of the same source are downloaded at the same time. Higher values are faster, but make more simultaneous requests to the source."
-msgstr "How many chapters of the same source are downloaded at the same time. Higher values are faster, but make more simultaneous requests to the source."
-
-#: src/features/downloads/screens/DownloadSettings.tsx
-msgid "Parallel chapter downloads"
-msgstr "Parallel chapter downloads"
-
-#: src/features/downloads/screens/DownloadSettings.tsx
-msgid "Performance and data usage"
-msgstr "Performance and data usage"
-
-#: src/features/downloads/screens/DownloadSettings.tsx
-msgid "Saves data. Covers of library entries and covers that are already cached are still shown"
-msgstr "Saves data. Covers of library entries and covers that are already cached are still shown"
-
 #. placeholder {0}: t(SYNC_STATE_TRANSLATION[syncState])
 #: src/features/settings/screens/ServerSettings.tsx
 msgid "— State: {0}"
@@ -398,6 +370,10 @@ msgstr "A migration is already in progress"
 #: src/features/settings/Settings.constants.ts
 msgid "A preview focused web frontend built with svelte"
 msgstr "A preview focused web frontend built with svelte"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Apply source rate limits"
+msgstr "Apply source rate limits"
 
 #: src/features/library/components/LibraryOptionsPanel.tsx
 msgid "A—Z"
@@ -1020,6 +996,18 @@ msgstr "Color filter blend mode"
 #: src/features/library/components/LibraryOptionsPanel.tsx
 msgid "Comfortable grid"
 msgstr "Comfortable grid"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Disabled by default. Enable it in case a source starts blocking or throttling you"
+msgstr "Disabled by default. Enable it in case a source starts blocking or throttling you"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Don't load covers while browsing sources"
+msgstr "Don't load covers while browsing sources"
+
+#: src/features/manga/components/DownloadAllChaptersButton.tsx
+msgid "Download all chapters"
+msgstr "Download all chapters"
 
 #. Used to detect the type of an entry by using it to check if the genre/tags of an entry includes this string. This is NOT shown to any user. Do NOT include any unnecessary text or characters, this will break the type detection (e.g. "MangaInMyLanguage (Manga)")
 #. js-lingui-explicit-id
@@ -1859,6 +1847,10 @@ msgstr "Failed to connect to KOReader Sync server."
 msgid "Failed to disconnect from KOReader Sync server."
 msgstr "Failed to disconnect from KOReader Sync server."
 
+#: src/features/manga/components/DownloadAllChaptersButton.tsx
+msgid "Failed to fetch chapters"
+msgstr "Failed to fetch chapters"
+
 #: src/features/backup/screens/Backup.tsx
 #: src/features/browse/extensions/Extensions.tsx
 #: src/features/browse/screens/BrowseSettings.tsx
@@ -1906,6 +1898,10 @@ msgstr "Features and changes in this version might not be completely ready yet a
 #: src/features/settings/screens/Appearance.tsx
 msgid "Feel free to translate the project on Weblate (<0>WebUI</0> and <1>Server</1>)"
 msgstr "Feel free to translate the project on Weblate (<0>WebUI</0> and <1>Server</1>)"
+
+#: src/features/manga/components/DownloadAllChaptersButton.tsx
+msgid "Fetching chapters…"
+msgstr "Fetching chapters…"
 
 #: src/features/downloads/components/DeleteChaptersWhileReadingSetting.tsx
 msgid "Fifth to last read chapter"
@@ -2119,6 +2115,10 @@ msgstr "Horizontal"
 #: src/features/reader/hotkeys/settings/components/RecordHotkey.tsx
 msgid "Hotkey already exists"
 msgstr "Hotkey already exists"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "How many chapters of the same source are downloaded at the same time. Higher values are faster, but make more simultaneous requests to the source."
+msgstr "How many chapters of the same source are downloaded at the same time. Higher values are faster, but make more simultaneous requests to the source."
 
 #: src/features/downloads/components/DownloadAheadSetting.tsx
 msgid "How many chapters should get downloaded while reading."
@@ -2800,6 +2800,10 @@ msgstr "Next page"
 msgid "Next:"
 msgstr "Next:"
 
+#: src/features/manga/components/DownloadAllChaptersButton.tsx
+msgid "No chapters available to download"
+msgstr "No chapters available to download"
+
 #: src/features/chapter/components/ChapterList.tsx
 msgid "No chapters found"
 msgstr "No chapters found"
@@ -3052,6 +3056,10 @@ msgstr "Page: {page}"
 msgid "Page: {page}/{0}"
 msgstr "Page: {page}/{0}"
 
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Parallel chapter downloads"
+msgstr "Parallel chapter downloads"
+
 #: src/features/browse/screens/BrowseSettings.tsx
 msgid "Parallel source requests"
 msgstr "Parallel source requests"
@@ -3072,6 +3080,10 @@ msgstr "Pending…"
 #: src/features/settings/components/koreaderSync/KoreaderSyncSettings.tsx
 msgid "Percentage Tolerance"
 msgstr "Percentage Tolerance"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Performance and data usage"
+msgstr "Performance and data usage"
 
 #: src/features/browse/sources/components/SourceCard.tsx
 msgid "Pin source"
@@ -3373,6 +3385,10 @@ msgstr "Save search"
 #: src/features/theme/components/CreateThemeDialog.tsx
 msgid "Saved theme changes"
 msgstr "Saved theme changes"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Saves data. Covers of library entries and covers that are already cached are still shown"
+msgstr "Saves data. Covers of library entries and covers that are already cached are still shown"
 
 #: src/features/theme/components/CreateThemeDialog.tsx
 msgid "Saving theme changes…"
