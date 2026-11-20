@@ -3184,6 +3184,9 @@ export type ServerSettingsFragment = {
     databaseSchema: string;
     useHikariConnectionPool: boolean;
     hikariMaxPoolSize: number;
+    downloadChaptersInParallel: number;
+    rateLimitEnabled: boolean;
+    disableCoverLoadingWhileBrowsing: boolean;
     kcefEnabled: boolean;
     syncDataCategories: boolean;
     syncDataChapters: boolean;
@@ -3299,6 +3302,9 @@ export type ResetServerSettingsMutation = {
             databaseSchema: string;
             useHikariConnectionPool: boolean;
             hikariMaxPoolSize: number;
+            downloadChaptersInParallel: number;
+            rateLimitEnabled: boolean;
+            disableCoverLoadingWhileBrowsing: boolean;
             kcefEnabled: boolean;
             syncDataCategories: boolean;
             syncDataChapters: boolean;
@@ -3424,6 +3430,9 @@ export type UpdateServerSettingsMutation = {
             databaseSchema: string;
             useHikariConnectionPool: boolean;
             hikariMaxPoolSize: number;
+            downloadChaptersInParallel: number;
+            rateLimitEnabled: boolean;
+            disableCoverLoadingWhileBrowsing: boolean;
             kcefEnabled: boolean;
             syncDataCategories: boolean;
             syncDataChapters: boolean;
@@ -3545,6 +3554,9 @@ export type GetServerSettingsQuery = {
         databaseSchema: string;
         useHikariConnectionPool: boolean;
         hikariMaxPoolSize: number;
+        downloadChaptersInParallel: number;
+        rateLimitEnabled: boolean;
+        disableCoverLoadingWhileBrowsing: boolean;
         kcefEnabled: boolean;
         syncDataCategories: boolean;
         syncDataChapters: boolean;
