@@ -17,6 +17,7 @@ import { memo, useRef } from 'react';
 import { CustomTooltip } from '@/base/components/CustomTooltip.tsx';
 import { SpinnerImage } from '@/base/components/SpinnerImage.tsx';
 import { MangaOptionButton } from '@/features/manga/components/MangaOptionButton.tsx';
+import { DownloadAllChaptersButton } from '@/features/manga/components/DownloadAllChaptersButton.tsx';
 import { Mangas } from '@/features/manga/services/Mangas.ts';
 import type { SpecificMangaCardProps } from '@/features/manga/Manga.types.ts';
 import { TypographyMaxLines } from '@/base/components/texts/TypographyMaxLines.tsx';
@@ -179,6 +180,7 @@ export const MangaGridCard = memo(
                                         </CustomTooltip>
                                     )}
                                     {continueReadingButton}
+                                    {mode === 'source' && <DownloadAllChaptersButton mangaId={id} />}
                                 </Stack>
                             </>
                         </CardActionArea>
