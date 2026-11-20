@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to build (leave empty to build the branch selected in "Use workflow from")'
+        required: false
+        default: ''
+        type: string
 
 jobs:
   build:
