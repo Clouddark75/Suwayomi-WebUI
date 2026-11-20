@@ -14,6 +14,34 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Message-Format: ICU\n"
 
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Apply source rate limits"
+msgstr "Apply source rate limits"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Disabled by default. Enable it in case a source starts blocking or throttling you"
+msgstr "Disabled by default. Enable it in case a source starts blocking or throttling you"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Don't load covers while browsing sources"
+msgstr "Don't load covers while browsing sources"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "How many chapters of the same source are downloaded at the same time. Higher values are faster, but make more simultaneous requests to the source."
+msgstr "How many chapters of the same source are downloaded at the same time. Higher values are faster, but make more simultaneous requests to the source."
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Parallel chapter downloads"
+msgstr "Parallel chapter downloads"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Performance and data usage"
+msgstr "Performance and data usage"
+
+#: src/features/downloads/screens/DownloadSettings.tsx
+msgid "Saves data. Covers of library entries and covers that are already cached are still shown"
+msgstr "Saves data. Covers of library entries and covers that are already cached are still shown"
+
 #. placeholder {0}: t(SYNC_STATE_TRANSLATION[syncState])
 #: src/features/settings/screens/ServerSettings.tsx
 msgid "— State: {0}"
