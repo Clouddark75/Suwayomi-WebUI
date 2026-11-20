@@ -48,6 +48,9 @@ type DownloadSettingsType = Pick<
     | 'excludeEntryWithUnreadChapters'
     | 'autoDownloadIgnoreReUploads'
     | 'downloadConversions'
+    | 'downloadChaptersInParallel'
+    | 'rateLimitEnabled'
+    | 'disableCoverLoadingWhileBrowsing'
 >;
 
 export const DownloadSettings = () => {
@@ -136,6 +139,52 @@ export const DownloadSettings = () => {
             <ListItemLink to={AppRoutes.settings.children.images.children.processingDownloads.path}>
                 <ListItemText primary={t`Image download processing`} />
             </ListItemLink>
+            <List
+                subheader={
+                    <ListSubheader component="div" id="download-settings-performance">
+                        {t`Performance and data usage`}
+                    </ListSubheader>
+                }
+            >
+                <NumberSetting
+                    settingTitle={t`Parallel chapter downloads`}
+                    dialogDescription={t`How many chapters of the same source are downloaded at the same time. Higher values are faster, but make more simultaneous requests to the source.`}
+                    settingValue={plural(downloadSettings.downloadChaptersInParallel, {
+                        one: '# Chapter',
+                        other: '# Chapters',
+                    })}
+                    valueUnit={t`Chapter`}
+                    value={downloadSettings.downloadChaptersInParallel}
+                    defaultValue={4}
+                    minValue={1}
+                    maxValue={32}
+                    showSlider
+                    stepSize={1}
+                    handleUpdate={(chapters) => updateSetting('downloadChaptersInParallel', chapters)}
+                />
+                <ListItem>
+                    <ListItemText
+                        primary={t`Apply source rate limits`}
+                        secondary={t`Disabled by default. Enable it in case a source starts blocking or throttling you`}
+                    />
+                    <Switch
+                        edge="end"
+                        checked={!!downloadSettings.rateLimitEnabled}
+                        onChange={(e) => updateSetting('rateLimitEnabled', e.target.checked)}
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemText
+                        primary={t`Don't load covers while browsing sources`}
+                        secondary={t`Saves data. Covers of library entries and covers that are already cached are still shown`}
+                    />
+                    <Switch
+                        edge="end"
+                        checked={!!downloadSettings.disableCoverLoadingWhileBrowsing}
+                        onChange={(e) => updateSetting('disableCoverLoadingWhileBrowsing', e.target.checked)}
+                    />
+                </ListItem>
+            </List>
             <List
                 subheader={
                     <ListSubheader component="div" id="download-settings-auto-delete-downloads">
