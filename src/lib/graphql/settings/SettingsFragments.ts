@@ -33,6 +33,9 @@ export const SERVER_SETTINGS = gql`
         # downloader
         downloadAsCbz
         downloadsPath
+        downloadChaptersInParallel
+        rateLimitEnabled
+        disableCoverLoadingWhileBrowsing
         autoDownloadNewChapters
         excludeEntryWithUnreadChapters
         autoDownloadNewChaptersLimit
