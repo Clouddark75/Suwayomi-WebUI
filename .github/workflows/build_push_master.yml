@@ -1,3 +1,4 @@
+
 name: CI build
 
 on:
@@ -12,6 +13,14 @@ on:
         default: ''
         type: string
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  actions: read
+
 jobs:
   build:
     name: Build artifacts and deploy preview
@@ -19,15 +28,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Cancel previous runs
-        uses: styfle/cancel-workflow-action@0.12.1
-        with:
-          access_token: ${{ github.token }}
-
-      - name: Checkout master branch
+      - name: Checkout branch
         uses: actions/checkout@v4
         with:
-          ref: master
+          ref: ${{ inputs.branch || github.ref_name }}
           path: master
           fetch-depth: 0
 
@@ -36,8 +40,8 @@ jobs:
         with:
           node-version-file: './master/package.json'
 
-      - uses: pnpm/action-setup@v4.2.0
-        name: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4.2.0
         with:
           version: 11.1.2
 
@@ -46,11 +50,11 @@ jobs:
         with:
           path: |
             **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-${{ hashFiles('master/**/pnpm-lock.yaml') }}
 
       - name: Build webUI
+        working-directory: master
         run: |
-          cd master
           pnpm ci
           pnpm build
           pnpm build-zip
@@ -59,61 +63,73 @@ jobs:
 
       - name: Generate Tag Name
         id: GenTagName
+        working-directory: master
         run: |
-          cd master/build
           genTag="r$(git rev-list HEAD --count)"
           echo "$genTag"
-          echo "::set-output name=value::$genTag"
-
-      - name: Checkout preview branch
-        uses: actions/checkout@v4
-        with:
-          repository: "Suwayomi/Suwayomi-WebUI-preview"
-          ref: main
-          path: preview
-          token: ${{ secrets.BUILD_PREVIEW_TOKEN }}
+          echo "value=$genTag" >> "$GITHUB_OUTPUT"
 
       - name: Create Tag
+        working-directory: master
+        env:
+          TAG: ${{ steps.GenTagName.outputs.value }}
         run: |
-          TAG="${{ steps.GenTagName.outputs.value }}"
-          echo "tag: $TAG"
-          cd preview
-          echo "{ \"latest\": \"$TAG\" }" > index.json
-          git add index.json
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git commit -m "Updated to $TAG"
-          git push origin main
-
-          git tag $TAG
-          git push origin $TAG
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git tag "$TAG"
+          git push origin "refs/tags/$TAG"
 
       - name: Upload CI Release
         uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.BUILD_PREVIEW_TOKEN }}
+          token: ${{ github.token }}
           artifacts: "master/buildZip/*"
-          owner: "Suwayomi"
-          repo: "Suwayomi-WebUI-preview"
           tag: ${{ steps.GenTagName.outputs.value }}
+          name: ${{ steps.GenTagName.outputs.value }}
+          allowUpdates: true
+          replacesArtifacts: true
 
-      - name: Checkout github pages repo
+      - name: Upload WebUI artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: webui-preview
+          path: master/buildZip/*
+          if-no-files-found: error
+
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
-          repository: "Suwayomi-WebUI-preview/suwayomi-webui-preview.github.io"
-          ref: main
+          ref: master
           path: gh-pages
-          token: ${{ secrets.DEPLOY_PREVIEW_TOKEN }}
+          fetch-depth: 0
+          token: ${{ github.token }}
 
-      - name: Deploy github pages
+      - name: Deploy GitHub Pages
+        working-directory: gh-pages
+        env:
+          TAG: ${{ steps.GenTagName.outputs.value }}
         run: |
-          TAG="${{ steps.GenTagName.outputs.value }}"
-          rm -rf gh-pages/*
-          cp -r master/build/* gh-pages
-          cd gh-pages
+          git fetch origin gh-pages || true
+
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git checkout -B gh-pages origin/gh-pages
+          else
+            git checkout --orphan gh-pages
+          fi
+
+          git rm -rf . || true
+          git clean -fdx
+
+          cp -r ../master/build/. .
           cp index.html 404.html
+
           git add -A
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git commit -m "$TAG"
-          git push origin main
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          if ! git diff --cached --quiet; then
+            git commit -m "$TAG"
+            git push origin gh-pages
+          else
+            echo "No changes to deploy."
+          fi
