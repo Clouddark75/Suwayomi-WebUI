@@ -17,6 +17,7 @@ import { TypographyMaxLines } from '@/base/components/texts/TypographyMaxLines.t
 import type { SpecificMangaCardProps } from '@/features/manga/Manga.types.ts';
 import { Mangas } from '@/features/manga/services/Mangas.ts';
 import { MangaOptionButton } from '@/features/manga/components/MangaOptionButton.tsx';
+import { DownloadAllChaptersButton } from '@/features/manga/components/DownloadAllChaptersButton.tsx';
 import { ListCardAvatar } from '@/base/components/lists/cards/ListCardAvatar.tsx';
 import { ListCardContent } from '@/base/components/lists/cards/ListCardContent';
 import { MediaQuery } from '@/base/utils/MediaQuery.tsx';
@@ -103,6 +104,7 @@ export const MangaListCard = memo(
                         >
                             {mangaBadges}
                             {continueReadingButton}
+                            {mode === 'source' && <DownloadAllChaptersButton mangaId={id} />}
                             <MangaOptionButton
                                 ref={optionButtonRef}
                                 popupState={popupState}
