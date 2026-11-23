@@ -1,0 +1,1 @@
+import{Ia as e,ac as t,it as n}from"./index-BG06pKjv.js";var r=t(e,{shouldForwardProp:n([`isFirstItem`])})(({theme:e,isFirstItem:t})=>({paddingLeft:e.spacing(3),paddingTop:e.spacing(.75),paddingBottom:e.spacing(2),fontWeight:`bold`,backgroundColor:e.vars.palette.background.default,[e.breakpoints.down(`sm`)]:{paddingTop:t?e.spacing(1):e.spacing(.75)}}));export{r as t};

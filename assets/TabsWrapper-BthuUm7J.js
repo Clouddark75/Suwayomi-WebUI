@@ -1,0 +1,1 @@
+import{C as e,Ds as t,dl as n}from"./index-BG06pKjv.js";var r=n(),i=({children:n,...i})=>(0,r.jsx)(t,{...i,sx:e.mergeSx(i.sx,{position:`relative`,height:`100%`}),children:n});export{i as t};

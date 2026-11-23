@@ -1,0 +1,1 @@
+import{dl as e,m as t}from"./index-BG06pKjv.js";var n=e(),r=({children:e,maxSelectionHeightPx:r=250,...i})=>(0,n.jsx)(t,{MenuProps:{slotProps:{paper:{style:{maxHeight:r}}}},...i,children:e});export{r as t};

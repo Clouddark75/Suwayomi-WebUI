@@ -1,0 +1,1 @@
+System.register(["./index-legacy-Ck8d7fwO.js"],function(e,t){var i,n,r,s;return{setters:[function(e){i=e.C,n=e.Ds,r=e.dl}],execute:function(){s=r(),e("t",({children:e,...t})=>(0,s.jsx)(n,{...t,sx:i.mergeSx(t.sx,{position:"relative",height:"100%"}),children:e}))}}});

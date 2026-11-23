@@ -1,0 +1,1 @@
+import{It as e,St as t,pl as n,ul as r}from"./index-BG06pKjv.js";var i=n(r(),1),a=(n,r=e)=>{let{setAction:a}=t();(0,i.useEffect)(()=>(a(n),()=>a(null)),r)};export{a as t};
